@@ -1,0 +1,324 @@
+/* Dedicated game layer. Kept separate from layout styles so minigames can evolve safely. */
+:root {
+  --game-navy: #071c2d;
+  --game-panel: #102f45;
+  --game-cyan: #64e7f4;
+  --game-green: #51e0ad;
+  --game-gold: #ffd166;
+  --game-danger: #ff806f;
+  --game-glow: 0 0 24px rgba(100, 231, 244, .24);
+}
+
+.well-mini-shell {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 520px;
+  border: 1px solid rgba(111, 209, 223, .42);
+  border-radius: 26px;
+  background:
+    linear-gradient(rgba(100, 231, 244, .035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100, 231, 244, .035) 1px, transparent 1px),
+    radial-gradient(circle at 50% 10%, rgba(49, 184, 146, .22), transparent 36%),
+    linear-gradient(145deg, #102f45, #071c2d 74%);
+  background-size: 28px 28px, 28px 28px, auto, auto;
+  box-shadow: 0 30px 70px rgba(7, 28, 45, .28), inset 0 1px rgba(255,255,255,.12);
+}
+
+.well-mini-shell::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 25%, rgba(100,231,244,.08) 48%, transparent 70%);
+  transform: translateX(-110%);
+  animation: arenaLightSweep 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.well-mini-shell::after {
+  content: "LIVE • TERÉNNA JEDNOTKA 01";
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  z-index: 4;
+  padding: 6px 9px;
+  border: 1px solid rgba(100,231,244,.25);
+  border-radius: 6px;
+  background: rgba(4,20,32,.68);
+  color: #a9dce5;
+  font: 800 .58rem/1 ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: .11em;
+  box-shadow: var(--game-glow);
+}
+
+.well-game-stage {
+  position: relative;
+  z-index: 1;
+  min-height: 500px;
+  padding: 58px 28px 28px;
+}
+
+.mission-hud {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(100, 231, 244, .28);
+  border-radius: 18px;
+  background: linear-gradient(115deg, rgba(7,28,45,.98), rgba(16,58,78,.96));
+  box-shadow: 0 18px 42px rgba(7,28,45,.22), inset 0 1px rgba(255,255,255,.11);
+}
+
+.mission-hud::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--game-cyan), var(--game-green), transparent);
+  box-shadow: 0 0 16px var(--game-cyan);
+}
+
+.mission-hud-label {
+  color: var(--game-cyan);
+  text-shadow: 0 0 12px rgba(100,231,244,.55);
+  letter-spacing: .16em;
+}
+
+.mission-hud-score {
+  padding-left: 20px;
+  border-left: 1px solid rgba(100,231,244,.2);
+}
+
+.mission-hud-meta b {
+  border-color: rgba(100,231,244,.2);
+  background: rgba(100,231,244,.08);
+}
+
+.star-rating i {
+  text-shadow: 0 0 10px rgba(255,209,102,.5);
+  transition: transform 180ms cubic-bezier(.34,1.56,.64,1), color 180ms ease;
+}
+
+.well-switcher {
+  border: 1px solid rgba(47,128,237,.15);
+  border-radius: 16px;
+  background: rgba(255,255,255,.72);
+  box-shadow: 0 12px 28px rgba(24,88,168,.08), inset 0 1px #fff;
+  backdrop-filter: blur(12px);
+}
+
+.well-dots button {
+  position: relative;
+  transition: transform 180ms cubic-bezier(.34,1.56,.64,1), box-shadow 180ms ease, background 180ms ease;
+}
+
+.well-dots button:hover { transform: translateY(-3px) scale(1.06); }
+.well-dots button.active { box-shadow: 0 0 0 4px rgba(47,128,237,.12), 0 7px 18px rgba(24,88,168,.2); }
+.well-dots button.collected::after {
+  content: "✓";
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  display: grid;
+  place-items: center;
+  width: 17px;
+  aspect-ratio: 1;
+  border: 2px solid white;
+  border-radius: 50%;
+  background: var(--game-green);
+  color: #073b2c;
+  font-size: .58rem;
+  font-weight: 950;
+}
+
+/* Precision filling */
+.fill-game-stage {
+  background: radial-gradient(ellipse at 50% 85%, rgba(100,231,244,.12), transparent 45%);
+}
+
+.precision-bottle {
+  filter: drop-shadow(0 22px 22px rgba(0,0,0,.25));
+  transition: filter 300ms ease, transform 300ms cubic-bezier(.34,1.56,.64,1);
+}
+
+.precision-fill-scene.perfect .precision-bottle {
+  transform: translateY(-4px) scale(1.025);
+  filter: drop-shadow(0 0 18px rgba(81,224,173,.6)) drop-shadow(0 22px 22px rgba(0,0,0,.2));
+}
+
+.precision-target { animation: gameTargetPulse 1.2s ease-in-out infinite; }
+.falling-stream { filter: drop-shadow(0 0 8px rgba(100,231,244,.7)); }
+
+.hold-button {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(100,231,244,.42);
+  background: linear-gradient(180deg, #267c9b, #164e6b);
+  color: white;
+  box-shadow: 0 7px 0 #0a3349, 0 15px 28px rgba(0,0,0,.3), inset 0 1px rgba(255,255,255,.25);
+}
+
+.hold-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,.3), transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 500ms ease;
+}
+
+.hold-button:hover::after { transform: translateX(120%); }
+.hold-button:active { transform: translateY(6px) scale(.99); box-shadow: 0 1px 0 #0a3349, 0 7px 15px rgba(0,0,0,.24); }
+
+.game-meter {
+  border: 1px solid rgba(100,231,244,.34);
+  background: rgba(4,20,32,.8);
+  color: var(--game-cyan);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  text-shadow: 0 0 10px currentColor;
+  box-shadow: var(--game-glow), inset 0 0 18px rgba(100,231,244,.06);
+}
+
+/* Sampling spot map */
+.top-water-map {
+  border: 8px solid rgba(7,28,45,.72);
+  box-shadow: 0 22px 50px rgba(0,0,0,.32), inset 0 0 50px rgba(14,76,104,.2);
+}
+
+.top-water-map::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, transparent 0 5px, rgba(255,255,255,.018) 6px);
+  pointer-events: none;
+}
+
+.sample-spot {
+  box-shadow: 0 8px 18px rgba(7,28,45,.24), 0 0 0 0 rgba(100,231,244,.4);
+  transition: transform 180ms cubic-bezier(.34,1.56,.64,1), box-shadow 180ms ease;
+}
+
+.sample-spot:hover,
+.sample-spot.selected {
+  z-index: 4;
+  transform: translate(-50%,-50%) scale(1.08);
+  box-shadow: 0 12px 26px rgba(7,28,45,.32), 0 0 0 6px rgba(100,231,244,.17), 0 0 24px rgba(100,231,244,.38);
+}
+
+/* Pipe control console */
+.pipe-game-stage { background: radial-gradient(circle at 50% 42%, rgba(39,128,160,.17), transparent 50%); }
+.pipe-telemetry > div {
+  border-color: rgba(100,231,244,.22);
+  background: rgba(7,28,45,.76);
+  color: #b8d7df;
+  box-shadow: inset 0 1px rgba(255,255,255,.07);
+}
+.pipe-telemetry strong { color: white; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+.pipe-telemetry i { background: rgba(255,255,255,.09); }
+.pipe-telemetry i b { box-shadow: 0 0 12px var(--game-green); }
+.pipe-telemetry i.danger b { box-shadow: 0 0 12px var(--game-danger); }
+
+.valve-system {
+  border: 1px solid rgba(100,231,244,.24);
+  background: linear-gradient(145deg, rgba(13,45,64,.94), rgba(5,25,39,.94));
+  box-shadow: inset 0 0 45px rgba(100,231,244,.04), 0 22px 45px rgba(0,0,0,.25);
+}
+
+.valve-card {
+  border-color: rgba(100,231,244,.2);
+  background: linear-gradient(180deg, rgba(255,255,255,.96), #e7f3f7);
+  box-shadow: 0 8px 0 #a6c7d4, 0 15px 24px rgba(0,0,0,.2);
+}
+.valve-card:hover { transform: translateY(-4px); box-shadow: 0 12px 0 #a6c7d4, 0 20px 30px rgba(0,0,0,.22); }
+.valve-card:active { transform: translateY(5px); box-shadow: 0 3px 0 #88afbf, 0 8px 14px rgba(0,0,0,.2); }
+.valve-card.correct { border-color: var(--game-green); background: linear-gradient(180deg, #effff9, #c9f4e4); box-shadow: 0 7px 0 #29956f, 0 0 22px rgba(81,224,173,.3); }
+.valve-system.ready { animation: consoleSuccess 900ms ease both; }
+
+/* Depth and bubbles */
+.water-column {
+  box-shadow: inset 22px 0 28px rgba(255,255,255,.2), inset -20px 0 25px rgba(4,37,60,.18), 0 28px 45px rgba(0,0,0,.32);
+}
+.water-column::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 28%, rgba(255,255,255,.22) 43%, transparent 55%);
+  pointer-events: none;
+}
+.sensor-console,
+.tilt-console {
+  border-color: rgba(100,231,244,.26);
+  background: linear-gradient(155deg, rgba(251,254,255,.98), #e8f4f7);
+  box-shadow: 0 22px 42px rgba(0,0,0,.26), inset 0 1px white;
+}
+.sensor-readings span { border: 1px solid rgba(22,91,119,.1); box-shadow: inset 0 1px white; }
+.sensor-readings strong { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+.depth-probe i { box-shadow: 0 0 0 5px rgba(255,209,102,.16), 0 0 22px rgba(255,209,102,.45); }
+
+.bubble-bottle {
+  filter: drop-shadow(0 25px 24px rgba(0,0,0,.3));
+}
+.bubble-dot.bubble { box-shadow: inset -2px -3px 5px rgba(19,109,144,.18), 0 0 8px rgba(255,255,255,.55); }
+.tilting-bottle.ready .bubble-bottle { filter: drop-shadow(0 0 20px rgba(81,224,173,.48)) drop-shadow(0 25px 24px rgba(0,0,0,.2)); }
+
+/* Route mission */
+.route-game-stage { background: radial-gradient(circle at 50% 48%, rgba(49,184,146,.13), transparent 55%); }
+.route-status > span {
+  border-color: rgba(100,231,244,.22);
+  background: rgba(7,28,45,.76);
+  color: #b8d7df;
+}
+.route-status strong { color: var(--game-green); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; text-shadow: 0 0 10px rgba(81,224,173,.35); }
+.route-map {
+  padding: 14px;
+  border: 1px solid rgba(100,231,244,.24);
+  border-radius: 20px;
+  background: rgba(4,20,32,.54);
+  box-shadow: inset 0 0 35px rgba(100,231,244,.04), 0 20px 40px rgba(0,0,0,.25);
+}
+.route-map > span { border: 1px solid rgba(255,255,255,.18); box-shadow: inset 0 1px rgba(255,255,255,.22), 0 7px 14px rgba(0,0,0,.18); }
+.route-map > span.visited { filter: saturate(1.2) brightness(1.07); }
+.route-map > span.active { box-shadow: 0 0 0 4px rgba(81,224,173,.22), 0 0 24px rgba(81,224,173,.44), 0 10px 18px rgba(0,0,0,.24); }
+.route-controls button { border: 1px solid rgba(100,231,244,.25); background: linear-gradient(180deg, #f9feff, #d9ecf3); }
+
+/* Mission completion */
+.routine-panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(49,184,146,.24);
+  border-radius: 24px;
+  background: linear-gradient(145deg, rgba(255,255,255,.98), #eaf8f3);
+  box-shadow: 0 24px 55px rgba(22,91,76,.14);
+}
+.stage-complete-banner { background: linear-gradient(110deg, #0c523f, #178267); color: white; box-shadow: 0 12px 28px rgba(12,82,63,.2); }
+.stage-complete-check { box-shadow: 0 0 0 7px rgba(255,255,255,.12), 0 0 22px rgba(81,224,173,.38); }
+.auto-advance-card { border: 1px solid rgba(81,224,173,.32); background: linear-gradient(120deg, #092d29, #12664f); color: white; box-shadow: 0 22px 48px rgba(7,55,43,.28); }
+
+.game-feedback {
+  border-radius: 12px;
+  box-shadow: inset 4px 0 currentColor, 0 10px 22px rgba(32,48,63,.07);
+}
+
+@keyframes arenaLightSweep {
+  0%, 38% { transform: translateX(-110%); }
+  62%, 100% { transform: translateX(110%); }
+}
+@keyframes gameTargetPulse {
+  50% { opacity: .72; filter: drop-shadow(0 0 8px var(--game-gold)); }
+}
+@keyframes consoleSuccess {
+  45% { box-shadow: inset 0 0 60px rgba(81,224,173,.16), 0 0 0 4px rgba(81,224,173,.16), 0 22px 45px rgba(0,0,0,.25); }
+}
+
+@media (max-width: 680px) {
+  .well-mini-shell { min-height: 440px; border-radius: 18px; }
+  .well-game-stage { min-height: 420px; padding: 52px 14px 18px; }
+  .well-mini-shell::after { top: 11px; right: 11px; font-size: .5rem; }
+  .mission-hud-score { padding-left: 0; border-left: 0; }
+  .route-map { padding: 8px; border-radius: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .well-mini-shell::before,
+  .precision-target,
+  .valve-system.ready { animation: none !important; }
+}

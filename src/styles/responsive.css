@@ -1,0 +1,410 @@
+/* Mobile-first responsive layer. Small touch screens are the baseline. */
+html {
+  min-width: 0;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-width: 0;
+  overflow-x: hidden;
+  overscroll-behavior-y: contain;
+}
+
+img,
+svg,
+video,
+canvas,
+iframe { max-width: 100%; }
+
+button,
+a,
+input,
+select,
+textarea { touch-action: manipulation; }
+
+button,
+[role="button"],
+input[type="range"] { -webkit-tap-highlight-color: transparent; }
+
+.app-shell {
+  width: 100%;
+  min-height: 100dvh;
+  padding:
+    max(8px, env(safe-area-inset-top))
+    max(10px, env(safe-area-inset-right))
+    max(16px, env(safe-area-inset-bottom))
+    max(10px, env(safe-area-inset-left));
+}
+
+.topbar {
+  position: sticky;
+  top: max(6px, env(safe-area-inset-top));
+  z-index: 30;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "brand menu"
+    "status status"
+    "nav nav";
+  gap: 8px;
+  width: 100%;
+  margin: 0 auto 14px;
+  padding: 7px;
+  border-radius: 14px;
+}
+
+.brand-button { grid-area: brand; min-width: 0; min-height: 44px; padding: 2px 4px; font-size: .96rem; }
+.brand-mark,
+.atomacik-logo { width: 36px; height: 36px; flex: 0 0 auto; }
+.menu-toggle { display: block; grid-area: menu; width: 44px; height: 44px; }
+
+.nav-links {
+  display: none;
+  grid-area: nav;
+  width: 100%;
+  max-height: min(55dvh, 390px);
+  overflow-y: auto;
+  padding: 8px 0 2px;
+  border-top: 1px solid rgba(201,224,234,.82);
+}
+
+.nav-links.is-open { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+.nav-links button { min-height: 46px; padding: 9px 10px; border-radius: 9px; text-align: left; }
+.nav-links button.active { background: #e7f0ff; }
+
+.status-strip {
+  grid-area: status;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 6px;
+  width: 100%;
+}
+
+.player-chip { min-width: 0; min-height: 46px; padding: 5px 7px; }
+.player-chip > span:last-child { min-width: 0; }
+.player-chip strong,
+.player-chip small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.player-chip strong { max-width: 30vw; }
+.player-chip .avatar-visual { width: 34px; height: 34px; flex: 0 0 auto; }
+.mission-chip { min-width: 0; padding: 6px 8px; }
+.mission-chip > strong { display: none; }
+.mission-dots { grid-template-columns: repeat(6, 8px); gap: 3px; }
+.mission-dots i { width: 8px; height: 8px; }
+
+#main-content { width: 100%; min-width: 0; }
+.content-section {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 18px 12px;
+  border-radius: 18px;
+}
+
+.content-section h1 {
+  max-width: 100%;
+  margin-top: 5px;
+  font-size: clamp(1.7rem, 9vw, 2.4rem);
+  line-height: 1.04;
+  overflow-wrap: anywhere;
+}
+
+.content-section h2 { font-size: clamp(1.2rem, 6vw, 1.65rem); }
+.lead { font-size: clamp(.98rem, 4.4vw, 1.12rem); line-height: 1.55; }
+.eyebrow { font-size: .7rem; letter-spacing: .11em; }
+
+.section-heading,
+.sample-clean-heading,
+.lab-heading,
+.results-heading {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.section-heading > *,
+.sample-clean-heading > *,
+.lab-heading > * { min-width: 0; }
+
+.button-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 9px;
+  width: 100%;
+}
+
+.button-row button,
+.button-row a,
+.primary-button,
+.secondary-button {
+  min-height: 48px;
+  max-width: 100%;
+  padding: 11px 14px;
+  white-space: normal;
+}
+
+input:not([type="range"]),
+select,
+textarea { width: 100%; min-height: 48px; font-size: 16px; }
+input[type="range"] { min-height: 44px; }
+
+/* Landing, onboarding and information screens */
+.home-layout,
+.employee-layout,
+.interview-layout,
+.briefing-grid,
+.how-grid,
+.profile-layout,
+.glossary-grid,
+.conclusion-layout {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.hero-visual,
+.employee-card,
+.interview-visual { min-height: 260px; }
+.avatar-picker,
+.avatar-card-picker { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; }
+.avatar-picker button { min-width: 0; padding-inline: 5px; }
+.boss-card { grid-template-columns: 54px minmax(0,1fr); padding: 12px; }
+.boss-portrait { width: 54px; height: 54px; }
+.quiz-options { grid-template-columns: 1fr; }
+.quiz-options button { min-height: 54px; }
+
+/* Location and expedition map */
+.location-layout,
+.location-stage,
+.location-content-grid { grid-template-columns: minmax(0,1fr); }
+.slovakia-map,
+.slovakia-svg { width: 100%; min-height: 0; }
+.slovakia-svg { height: auto; }
+.location-card-grid { grid-template-columns: 1fr; }
+.mission-map,
+.expedition-map {
+  width: 100%;
+  min-height: 520px;
+  border-radius: 18px;
+}
+.map-node,
+.well-node,
+.lab-node { transform: scale(.82); transform-origin: center; }
+.map-actions { display: grid; grid-template-columns: 1fr; }
+
+/* Field missions */
+.sample-layout,
+.sample-layout-clean { grid-template-columns: minmax(0,1fr); }
+.well-switcher { grid-template-columns: 40px minmax(0,1fr) 40px; gap: 4px; padding: 7px; }
+.well-dots { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 4px; }
+.well-dots button { width: auto; min-width: 0; min-height: 40px; padding: 0; }
+.well-arrow { min-width: 40px; min-height: 44px; }
+.sample-brief-card { grid-template-columns: 48px minmax(0,1fr); }
+.mission-hud { display: grid; grid-template-columns: 1fr; gap: 12px; padding: 14px; }
+.mission-hud-score { align-items: flex-start; text-align: left; }
+.mission-hud-meta { justify-content: flex-start; }
+.well-mini-shell { width: 100%; min-height: 430px; }
+.well-game-stage { min-height: 410px; padding: 52px 10px 16px; }
+.well-mini-shell::after { max-width: calc(100% - 20px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.precision-fill-scene,
+.fill-action { max-width: 100%; }
+.precision-bottle { max-width: min(42vw, 160px); }
+.hold-button { width: 100%; min-height: 58px; }
+.top-water-map { min-height: 460px; }
+.spot-clues { max-width: calc(100% - 16px); }
+.sample-spot { min-width: 82px; max-width: 112px; padding: 7px; }
+.sample-spot small { display: none; }
+.pipe-telemetry { grid-template-columns: 1fr; width: 100%; }
+.valve-system { padding: 16px 10px; }
+.valve-system .flow-rail { max-width: calc(100% - 10px); }
+.valve-card { min-width: 0; }
+.sensor-lab,
+.bubble-workbench { grid-template-columns: minmax(0,1fr); gap: 18px; width: 100%; }
+.water-column { min-height: 290px; }
+.sensor-console,
+.tilt-console { width: 100%; padding: 15px; }
+.bubble-workbench { padding: 25px 4px 10px; }
+.tilting-bottle .bubble-bottle { width: min(58vw, 210px); height: 270px; }
+.route-status { width: 100%; }
+.route-map { width: 100%; gap: 4px; padding: 7px; }
+.route-map > span { min-width: 0; min-height: 58px; padding: 3px; }
+.route-map small { font-size: .5rem; overflow-wrap: anywhere; }
+.route-cell-icon { font-size: 1.25rem; }
+.route-controls { display: grid; grid-template-columns: repeat(2, 1fr); gap: 7px; width: 100%; }
+.route-controls button { min-width: 0; min-height: 52px; }
+.routine-panel { grid-template-columns: minmax(0,1fr); padding: 12px; }
+.routine-bottle-card { min-height: 190px; }
+.routine-form { min-width: 0; }
+.code-part-grid,
+.routine-options,
+.routine-options-grid { grid-template-columns: 1fr 1fr; gap: 7px; }
+.code-part-grid button,
+.routine-options button { min-width: 0; min-height: 48px; padding: 8px; overflow-wrap: anywhere; }
+.label-tools { display: grid; grid-template-columns: 1fr; }
+.stage-complete-banner,
+.auto-advance-card { grid-template-columns: auto minmax(0,1fr); gap: 10px; }
+.stage-complete-banner .star-rating,
+.auto-advance-card button { grid-column: 1 / -1; width: 100%; }
+.quest-steps { grid-template-columns: 1fr; }
+
+/* Laboratory and spectrometer */
+.lab-layout,
+.lab-workspace,
+.lab-table,
+.lab-console,
+.analysis-layout,
+.spectrometer-layout,
+.spectrum-workspace,
+.results-layout { grid-template-columns: minmax(0,1fr); }
+.lab-table { min-height: 390px; padding: 14px 8px; }
+.sample-rack { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 7px; }
+.sample-rack button { min-width: 0; }
+.lab-controls,
+.lab-actions { display: grid; grid-template-columns: 1fr; }
+.analysis-hud { grid-template-columns: 1fr; }
+.spectrum-console { padding: 10px; border-radius: 15px; }
+.spectrum-chart { display: block; width: 100%; height: auto; min-height: 210px; }
+.evidence-board,
+.prep-cards,
+.reference-cards { grid-template-columns: 1fr; }
+.scientific-decision { grid-template-columns: 1fr; }
+.scientific-decision button { min-height: 54px; }
+.scan-button { width: 100%; }
+
+/* Results, profile, glossary and playlist */
+.results-table-wrap,
+.table-wrap { width: 100%; overflow-x: auto; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; }
+.results-table { min-width: 620px; }
+.profile-card,
+.profile-editor { padding: 15px; }
+.profile-danger-zone {
+  display: grid;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e6c8c3;
+}
+.profile-danger-zone > div { display: grid; gap: 3px; }
+.profile-danger-zone > div strong { color: #7f3027; }
+.profile-danger-zone > div span { color: #765c58; font-size: .82rem; line-height: 1.4; }
+.profile-reset-button,
+.profile-reset-cancel {
+  min-height: 46px;
+  padding: 10px 13px;
+  border-radius: 10px;
+  font-weight: 850;
+}
+.profile-reset-button { border: 1px solid #e0a59c; background: #fff4f2; color: #963d32; }
+.profile-reset-button.confirming { border-color: #c94839; background: #c94839; color: white; box-shadow: 0 0 0 4px rgba(201,72,57,.12); }
+.profile-reset-cancel { border: 1px solid var(--line); background: white; color: var(--ink); }
+.badge-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.glossary-tabs { display: grid; grid-template-columns: 1fr; gap: 5px; }
+.glossary-tabs button { min-height: 46px; }
+.flashcard { min-height: 280px; padding: 20px 14px; }
+.flashcard-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+.flashcard-controls button { min-width: 0; }
+
+/* Wider phones and tablets */
+@media (min-width: 480px) {
+  .app-shell { padding-inline: max(16px, env(safe-area-inset-left)); }
+  .content-section { padding: 24px 20px; }
+  .button-row { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .button-row > :only-child { grid-column: 1 / -1; }
+  .mission-chip > strong { display: block; }
+  .player-chip strong { max-width: 150px; }
+  .top-water-map { min-height: 500px; }
+  .pipe-telemetry { grid-template-columns: repeat(3,1fr); }
+  .label-tools { grid-template-columns: repeat(2,1fr); }
+  .quest-steps { grid-template-columns: repeat(3,1fr); }
+  .glossary-tabs { grid-template-columns: repeat(3,1fr); }
+}
+
+@media (min-width: 700px) {
+  .app-shell { padding: 16px; }
+  .topbar {
+    grid-template-columns: minmax(0,1fr) auto;
+    grid-template-areas: "brand status" "nav nav";
+    gap: 10px;
+    padding: 9px 10px;
+  }
+  .menu-toggle { display: none; }
+  .nav-links,
+  .nav-links.is-open { display: flex; max-height: none; overflow: visible; padding-top: 8px; }
+  .nav-links button { min-height: 42px; text-align: center; }
+  .status-strip { width: auto; }
+  .content-section { padding: 34px 30px; border-radius: 24px; }
+  .content-section h1 { font-size: clamp(2.25rem, 6vw, 3.5rem); overflow-wrap: normal; }
+  .section-heading,
+  .sample-clean-heading,
+  .lab-heading,
+  .results-heading { grid-template-columns: minmax(0,1fr) auto; align-items: center; }
+  .button-row { display: flex; flex-wrap: wrap; width: auto; }
+  .button-row button { width: auto; }
+  .home-layout,
+  .employee-layout,
+  .interview-layout,
+  .briefing-grid,
+  .profile-layout { grid-template-columns: minmax(0,1fr) minmax(280px,.8fr); }
+  .location-card-grid,
+  .mission-map,
+  .expedition-map { min-height: 590px; }
+  .map-node,
+  .well-node,
+  .lab-node { transform: none; }
+  .mission-hud { grid-template-columns: minmax(0,1fr) auto; padding: 18px; }
+  .mission-hud-score { text-align: right; }
+  .mission-hud-meta { justify-content: flex-end; }
+  .well-game-stage { padding: 58px 28px 28px; }
+  .sample-spot small { display: block; }
+  .sensor-lab { grid-template-columns: minmax(150px,.7fr) minmax(260px,1.3fr); }
+  .bubble-workbench { grid-template-columns: minmax(260px,.9fr) minmax(260px,1.1fr); }
+  .route-controls { grid-template-columns: repeat(4,1fr); }
+  .routine-panel { grid-template-columns: minmax(190px,.42fr) minmax(0,1fr); padding: 20px; }
+  .stage-complete-banner { grid-template-columns: auto minmax(0,1fr) auto; }
+  .stage-complete-banner .star-rating { grid-column: auto; }
+  .auto-advance-card { grid-template-columns: auto minmax(0,1fr) auto; }
+  .auto-advance-card button { grid-column: auto; width: auto; }
+  .sample-rack { grid-template-columns: repeat(6,minmax(0,1fr)); }
+  .evidence-board,
+  .prep-cards,
+  .reference-cards { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .scientific-decision { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .badge-grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
+  .flashcard-controls { display: flex; }
+}
+
+@media (min-width: 980px) {
+  .topbar {
+    position: relative;
+    top: auto;
+    grid-template-columns: auto minmax(220px,1fr) auto;
+    grid-template-areas: "brand nav status";
+  }
+  .nav-links,
+  .nav-links.is-open { padding: 0; border-top: 0; }
+  .content-section { padding: 42px; }
+  .location-layout { grid-template-columns: minmax(0,1.25fr) minmax(280px,.75fr); }
+  .lab-workspace,
+  .spectrum-workspace { grid-template-columns: minmax(0,1fr) minmax(280px,.72fr); }
+  .glossary-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+}
+
+/* Hover effects only where a real hover pointer exists. */
+@media (hover: none), (pointer: coarse) {
+  button:hover,
+  [role="button"]:hover,
+  .flashcard:hover,
+  .term-card:hover,
+  .route-map > span:hover { transform: none; }
+
+  button:active,
+  [role="button"]:active { filter: brightness(.96); }
+}
+
+@media (orientation: landscape) and (max-height: 520px) {
+  .topbar { position: relative; top: auto; }
+  .nav-links { max-height: 62dvh; }
+  .well-mini-shell,
+  .well-game-stage { min-height: 360px; }
+}

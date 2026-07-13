@@ -1,0 +1,1094 @@
+{
+  "appShell": {
+    "brandAria": "Domov",
+    "nav": {
+      "employee": "Nástup",
+      "glossary": "Slovník",
+      "map": "Misia",
+      "lab": "Lab",
+      "results": "Záver",
+      "profile": "Profil",
+      "playlist": "Playlist"
+    },
+    "missionLabels": {
+      "default": "Nástup",
+      "resultsUnlocked": "Vyhodnotenie",
+      "labUnlocked": "Laboratórium",
+      "defaultMission": "Terénna misia"
+    },
+    "status": {
+      "levelPrefix": "Úroveň",
+      "xpSuffix": "XP"
+    },
+    "reset": "Reset",
+    "music": {
+      "title": "Playlist do práce",
+      "helper": "Hudba môže hrať na pozadí, kým pokračujete v misii.",
+      "close": "Skryť prehrávač",
+      "open": "Zobraziť prehrávač",
+      "iframeTitle": "Spotify playlist do práce",
+      "offlineTitle": "Playlist potrebuje internet",
+      "offlineBody": "Hra zostáva dostupná offline. Hudbu znova načítame po obnovení pripojenia.",
+      "embedUrl": "https://open.spotify.com/embed/playlist/1uEuRjWouTvFbTAMwD1D3H?utm_source=generator&theme=0",
+      "hide": "Úplne skryť",
+      "peek": "Hudba"
+    }
+  },
+  "home": {
+    "eyebrow": "Vedecká výprava za čistou vodou",
+    "title": "Atómáčik",
+    "heroText": "Staň sa členom výskumného tímu. Odober vzorky vody, preskúmaj ich v laboratóriu a zisti, čo ukázali merania.",
+    "resumeTitle": "Uložený postup:",
+    "progress": {
+      "onboarding": "pokračuj v úvodnej príprave.",
+      "mission": "pokračuj v terénnej misii.",
+      "samples": "odobraté vzorky {count}/6.",
+      "analysis": "analyzované vzorky {count}/6."
+    },
+    "buttons": {
+      "start": "Začať výpravu",
+      "resume": "Pokračovať vo výprave",
+      "newGame": "Začať odznova",
+      "confirmNew": "Potvrdiť novú hru",
+      "how": "Ako hra funguje",
+      "glossary": "Slovník pojmov"
+    }
+  },
+  "employeeSetup": {
+    "eyebrow": "Nástup do práce",
+    "title": "Vitaj vo výskumnom tíme. Ako sa voláš?",
+    "buttons": {
+      "backHome": "Domov",
+      "continue": "Pokračovať na úvodný kvíz"
+    },
+    "labels": {
+      "playerName": "Tvoje meno",
+      "avatarLabel": "Výber avatara",
+      "organization": "Slovenské elektrárne",
+      "role": "člen tímu pre meranie vody"
+    },
+    "avatarNames": {
+      "atom": "Atóm",
+      "drop": "Kvapka",
+      "cesium": "Izotop"
+    },
+    "errors": {
+      "nameRequired": "Meno je povinné."
+    },
+    "placeholders": {
+      "playerName": "Saša"
+    }
+  },
+  "interview": {
+    "eyebrow": "Pohovor",
+    "title": "Krátky vstupný kvíz",
+    "hintButton": {
+      "show": "Skryť nápovedu",
+      "hide": "Nápoveda"
+    },
+    "feedback": {
+      "initial": "Šéf: Najprv krátky kvíz. Nápovedu môžeš použiť kedykoľvek.",
+      "correct": "Šéf: Správne. Presne toto potrebujeme vedieť.",
+      "next": "Šéf: Správne. Pokračujeme ďalšou otázkou.",
+      "retryFirst": "Šéf: Nie celkom. Pozri si nápovedu a skús to znova.",
+      "retrySecond": "Šéf: Skús ešte raz pokojne podľa nápovedy."
+    },
+    "questions": [
+      {
+        "text": "Čo je radiácia?",
+        "hint": "Nie je to vec, ktorú vidíš očami, ale vieme ju merať prístrojmi.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Neviditeľná energia, ktorú vieme merať.",
+            "correct": true
+          },
+          {
+            "id": "b",
+            "text": "Farba vody v studni.",
+            "correct": false
+          },
+          {
+            "id": "c",
+            "text": "Názov laboratórneho stola.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "text": "Ktorý izotop by vedcov upozornil na možné umelé znečistenie?",
+        "hint": "V hre ho hľadá spektrometer, ale vo vzorkách sa nenájde.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Bi-214",
+            "correct": false
+          },
+          {
+            "id": "b",
+            "text": "Pb-214",
+            "correct": false
+          },
+          {
+            "id": "c",
+            "text": "Cs-137",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "text": "Prečo zapisujeme lokalitu vzorky?",
+        "hint": "Bez miesta odberu by meranie nevedelo povedať, odkiaľ vzorka prišla.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Aby sa vzorka dala správne porovnať s miestom odberu.",
+            "correct": true
+          },
+          {
+            "id": "b",
+            "text": "Aby fľaštička vyzerala krajšie.",
+            "correct": false
+          },
+          {
+            "id": "c",
+            "text": "Aby sa voda zafarbila.",
+            "correct": false
+          }
+        ]
+      }
+    ],
+    "completion": "Šéf: Výborne, {playerName}. Úvodný kvíz máš za sebou.",
+    "preQuizAlert": {
+      "title": "Pred nástupom ešte krátke overenie",
+      "text": "Potrebujeme sa spýtať zopár otázok, aby sme vedeli, že rozumiete základom bezpečného odberu a merania vody."
+    }
+  },
+  "location": {
+    "eyebrow": "Mapa Slovenska",
+    "title": "Vyber si pracovnú lokalitu",
+    "buttons": {
+      "home": "Domov"
+    },
+    "lockedNote": "Si zamestnanec lokality {locationTitle}. V jednej hre má hráč iba jednu pracovnú lokalitu.",
+    "mapAria": "Kreslená mapa Slovenska s Mochovcami a Jaslovskými Bohunicami",
+    "pinAria": {
+      "bohunice": "Začať v Jaslovských Bohuniciach",
+      "mochovce": "Začať v Mochovciach"
+    },
+    "cards": {
+      "start": "Začať tu",
+      "selected": "Moja lokalita"
+    }
+  },
+  "briefing": {
+    "eyebrow": "Prvé zadanie",
+    "title": "Vitaj v tíme {locationTitle}",
+    "lead": "{playerName}, začínaš ako člen environmentálneho tímu lokality {plantLabel}. Prejdi studne v okolí elektrárne, odober vzorky a pomôž nám overiť, či je voda v poriadku.",
+    "steps": [
+      "Prejdi 6 studní",
+      "Označ vzorky",
+      "Analyzuj vodu v laboratóriu",
+      "Urob záver z meraní"
+    ],
+    "buttons": {
+      "startTour": "Začať obchádzku",
+      "showProfile": "Pozrieť ID kartu"
+    }
+  },
+  "howItWorks": {
+    "eyebrow": "Ako hra funguje",
+    "title": "Ako prebieha vedecká výprava",
+    "lead": "Najprv si vyberieš miesto na mape Slovenska. Potom budeš zbierať vzorky vody, skúmať ich v laboratóriu a robiť záver podľa meraní.",
+    "steps": [
+      "Vyber si Mochovce alebo Jaslovské Bohunice.",
+      "Nájdi studne na lokálnej mape.",
+      "Splň odberovú minihru a označ vzorky vody.",
+      "Priprav spektrometer v laboratóriu.",
+      "Zisti, či meranie zachytilo izotop Cs-137.",
+      "Vyhodnoť výsledok a získaj odznak."
+    ],
+    "buttons": {
+      "start": "Začať výpravu",
+      "backHome": "Späť domov"
+    }
+  },
+  "map": {
+    "locked": {
+      "text": "Najprv si vyber, či výprava začne v Mochovciach alebo v Jaslovských Bohuniciach.",
+      "button": "Otvoriť mapu Slovenska"
+    },
+    "eyebrow": "Terénna mapa · {locationTitle}",
+    "title": "Nájdi všetkých 6 studní",
+    "rankLabel": "Vzorky: {collectedCount}/6",
+    "lab": {
+      "locked": "Laboratórium",
+      "unlock": "Ísť do laboratória",
+      "ariaLocked": "Laboratórium je zamknuté",
+      "ariaUnlocked": "Ísť do laboratória"
+    },
+    "wellLabel": "Studňa {id}",
+    "wellStates": {
+      "collected": "odobraté"
+    },
+    "hint": "Laboratórium sa otvorí, keď odoberieš všetkých 6 vzoriek.",
+    "action": "Ísť do laboratória"
+  },
+  "sample": {
+    "missions": [
+      {
+      "title": "Jazero pri lúke",
+      "kind": "fill",
+      "view": "presný objem",
+      "goal": "Podrž fľaštičku pod prúdom a pusti ju vtedy, keď hladina trafí zelené pásmo.",
+      "scene": "scene-lake",
+      "briefing": "Presný objem aj stabilná fľaštička robia merania porovnateľné.",
+      "routine": "Skontroluj štítok a lokalitu vzorky."
+      },
+      {
+        "title": "Lesná studnička",
+        "kind": "spot",
+        "view": "čistý odberový bod",
+        "goal": "Vyber miesto, kde voda tečie, nie je pri kale a neleží pod lístím.",
+        "scene": "scene-forest",
+        "briefing": "Kal a lístie môžu skresliť výsledok. Dobrý odber je z čistého prúdu.",
+        "routine": "Zapíš čas odberu, aby laboratórium poznalo poradie vzoriek."
+      },
+      {
+      "title": "Prameň pri skalách",
+      "kind": "pipes",
+      "view": "ventily a filter",
+        "goal": "Nastav systém tak, aby mal bezpečný tlak, čistý filter a nulové riziko úniku do prostredia.",
+      "scene": "scene-rocks",
+        "briefing": "Sleduj tlak aj čistotu. Otvorený prívod so zaneseným filtrom zvýši tlak a nesprávny výstup môže kontaminovať okolie.",
+      "routine": "Zapíš, či je voda po prefiltrovaní číra."
+      },
+      {
+        "title": "Dedinská studňa",
+        "kind": "depth",
+        "view": "hĺbka odberu",
+        "goal": "Posúvaj sondu a nájdi vrstvu s nízkym zákalom a stabilnými hodnotami.",
+        "scene": "scene-village",
+        "briefing": "Nehádaj podľa polohy. Sleduj údaje sondy a odober tam, kde sú hodnoty stabilné.",
+        "routine": "Hĺbka a namerané hodnoty sa uložia priamo zo sondy."
+      },
+      {
+        "title": "Rybničná vzorka",
+        "kind": "bubbles",
+        "view": "bubliny vo vzorke",
+        "goal": "Nakloň fľašu do bezpečného uhla a jemným poklepaním uvoľni bubliny bez rozvírenia sedimentu.",
+        "scene": "scene-pond",
+        "briefing": "Bubliny môžu rušiť meranie, prudký pohyb však rozvíri sediment. Rozhoduje správny uhol a jemná manipulácia.",
+        "routine": "Vyber správnu terénnu poznámku."
+      },
+      {
+        "title": "Poľná studňa",
+        "kind": "route",
+        "view": "bezpečná trasa",
+        "goal": "Naplánuj cestu k studni s obmedzeným počtom krokov a čo najnižším rizikom kontaminácie.",
+        "scene": "scene-field",
+        "briefing": "Každý chybný krok míňa energiu a zvyšuje riziko kontaminácie. Najprv si prezri celú trasu.",
+        "routine": "Na konci vyber čistú uzavretú nádobu."
+      }
+    ],
+    "spots": [
+      {
+        "id": "mud",
+        "label": "A",
+        "title": "Tichý breh",
+        "clue": "pri kale",
+        "x": 20,
+        "y": 66,
+        "score": [
+          "kal",
+          "slabý prúd"
+        ]
+      },
+      {
+        "id": "leaf",
+        "label": "B",
+        "title": "Pod stromom",
+        "clue": "pada listie",
+        "x": 74,
+        "y": 35,
+        "score": [
+          "listie",
+          "tieň"
+        ]
+      },
+      {
+        "id": "clean",
+        "label": "C",
+        "title": "Čistý prúd",
+        "clue": "stred toku",
+        "x": 48,
+        "y": 54,
+        "score": [
+          "prúd",
+          "bez kalu"
+        ]
+      }
+    ],
+    "spotClues": [
+      "prúd sa hýbe",
+      "ďalej od brehu",
+      "bez listia"
+    ],
+    "routineTasks": {
+    "1": {
+      "kind": "identity",
+      "title": "Označ vzorku",
+      "hint": "Zlož kód z dielikov v správnom poradí a vyber lokalitu, kde vzorka vznikla.",
+      "correctName": "VZ-01-LUKA",
+      "codeParts": [
+        "LUKA",
+        "03",
+        "VZ",
+        "01",
+        "LAB",
+        "RIEKA"
+      ]
+    },
+      "2": {
+        "kind": "choice",
+        "title": "Čas odberu",
+        "hint": "Správny čas pomáha zoradiť vzorky.",
+        "correct": "09:20",
+        "options": [
+          "08:05",
+          "09:20",
+          "11:45"
+        ]
+      },
+      "3": {
+        "kind": "choice",
+        "title": "Stav vody",
+        "hint": "Po prefiltrovaní má byť zápis krátky a vecný.",
+        "correct": "číra",
+        "options": [
+          "číra",
+          "zakalená",
+          "s penou"
+        ]
+      },
+      "4": {
+        "kind": "choice",
+        "title": "Hĺbka odberu",
+        "hint": "Vyber hĺbku, ktorú si použil.",
+        "correct": "stredná hĺbka",
+        "options": [
+          "pri hladine",
+          "stredná hĺbka",
+          "pri dne"
+        ]
+      },
+      "5": {
+        "kind": "choice",
+        "title": "Terénna poznámka",
+        "hint": "Bubliny sú preč, ostatné pozorovania zapíš.",
+        "correct": "sediment a lístok pozorované",
+        "options": [
+          "bez pozorovaní",
+          "sediment a lístok pozorované",
+          "Cs-137 nájdené"
+        ]
+      },
+      "6": {
+        "kind": "choice",
+        "title": "Čistá nádoba",
+        "hint": "Vzorka patrí do čistej uzavretej fľaštičky.",
+        "correct": "čistá fľaštička",
+        "options": [
+          "otvorený pohár",
+          "čistá fľaštička",
+          "vedro bez štítku"
+        ]
+      }
+    },
+    "routeGrid": [
+      [
+        {
+          "type": "grass",
+          "label": "tráva"
+        },
+        {
+          "type": "bridge",
+          "label": "mostík"
+        },
+        {
+          "type": "safe",
+          "label": "chodník"
+        },
+        {
+          "type": "sample",
+          "label": "studňa"
+        }
+      ],
+      [
+        {
+          "type": "start",
+          "label": "start"
+        },
+        {
+          "type": "mud",
+          "label": "kal"
+        },
+        {
+          "type": "safe",
+          "label": "chodník"
+        },
+        {
+          "type": "water",
+          "label": "voda"
+        }
+      ],
+      [
+        {
+          "type": "leaf",
+          "label": "listie"
+        },
+        {
+          "type": "outflow",
+          "label": "výtok"
+        },
+        {
+          "type": "safe",
+          "label": "pevný breh"
+        },
+        {
+          "type": "water",
+          "label": "voda"
+        }
+      ]
+    ],
+    "routeMoves": [
+      {
+        "label": "hore",
+        "dx": 0,
+        "dy": -1
+      },
+      {
+        "label": "vľavo",
+        "dx": -1,
+        "dy": 0
+      },
+      {
+        "label": "vpravo",
+        "dx": 1,
+        "dy": 0
+      },
+      {
+        "label": "dole",
+        "dx": 0,
+        "dy": 1
+      }
+    ],
+  "messages": {
+      "default": "{text}",
+      "completed": "Táto vzorka je už hotová.",
+      "finish": "Hotovo. Vzorka môže ísť do laboratória.",
+      "routineRequired": "Najprv dokonči odberovú úlohu.",
+      "routineCheck": "Skontroluj záznam podľa zadania.",
+      "identityCheck": "Skontroluj lokalitu a presne prepíš kód vzorky z terénneho lístka.",
+      "fillStart": "Plní sa. Pusti pri zelenej ryske.",
+      "fillOverflow": "Prelialo sa. Skús pustiť skôr.",
+      "fillOpen": "Pusti, keď je fľaštička plná.",
+      "fillReady": "Skontroluj, či je fľaštička na správnej úrovni.",
+    "pipeHint": "Skús iné nastavenie. Správna kombinácia je otvorený prívod, čistý filter a výstup do fľaštičky.",
+      "depthHint": "Hladina môže mať nečistoty. Skús stabilnejšiu hĺbku.",
+      "depthHintBottom": "Pri dne by si nabral sediment. Skús stred.",
+      "bubbleHint": "Najprv najmenšia bublina, potom väčšie. Vzorka sa tak nepretrepe.",
+      "routeHint": "Zvoľ bezpečnú cestu k studni.",
+      "routeComplete": "Bezpečná trasa je pripravená.",
+      "miniGameCompleteSuffix": "Teraz dokonči krátky zápis vzorky.",
+      "marked": "Úspešne označené. Vzorka je pripravená a môže ísť do laboratória.",
+      "fillTooLow": "Ešte málo vody. Podrž dlhšie.",
+      "fillTooHigh": "Trochu veľa vody. Pusti skôr.",
+      "fillSuccess": "Výborne. Fľaštička je naplnená po rysku.",
+      "spotSuccess": "Správne. Bod C má prúd, je ďalej od brehu a bez lístia.",
+      "spotWrong": "{title} nesedí: {clue}. Hľadaj bod, ktorý spĺňa všetky tri indície.",
+      "fixedPipe": "Tento diel je pevne pripevnený a nemôže sa otáčať.",
+    "pipeSuccess": "Prúd je nastavený: prívod je otvorený, filter čistý a výstup mieri do fľaštičky.",
+    "pipeCorrectStep": "Toto nastavenie sedí.",
+      "depthSuccess": "Správne. Stredná hĺbka je stabilnejšia ako hladina alebo dno.",
+      "sedimentNote": "Sediment neodstraňuj, zapíš ho ako pozorovanie.",
+      "leafNote": "Lístok nechaj ako pozorovanie, nie ako bublinu.",
+      "bubbleSuccess": "Vzorka je bez bublín a pozorovania ostali zapísané.",
+      "bubbleStep": "Správne. Pokračuj ďalšou najmenšou bublinou.",
+      "routeOutside": "Tam sa nedá ísť. Drž sa mapky.",
+      "routeBlocked": "{label} by mohlo vzorku znečistiť. Skús inú cestu.",
+      "routeSuccess": "Našiel si bezpečnú trasu k poľnej studni.",
+      "routeStep": "Dobrá voľba. Pokračuj po pevných a čistých miestach."
+    },
+    "buttons": {
+      "backMap": "Späť na mapu",
+      "next": "Ďalšia vzorka",
+      "returnLab": "Späť do laboratória"
+    },
+    "common": {
+      "location": "lokalita",
+      "sample": "Vzorka",
+      "sampleLabel": "Vzorka {number}"
+    },
+    "ui": {
+      "wellHeading": "Studňa {number} / {view}",
+      "wellSwitcherAria": "Rýchly prechod medzi studňami",
+      "previousWell": "Predchádzajúca studňa",
+      "nextWell": "Ďalšia studňa",
+      "fillLine": "ryska",
+      "holdButton": "Klikni alebo podrž",
+      "spotCluesAria": "Indície pre výber odberového bodu",
+    "pipeBoardAria": "Potrubný hlavolam",
+    "pipeHint": "Klikaj na ovládacie prvky. Cieľ je: prívod otvorený, filter čistý, výstup do fľaštičky.",
+      "depthOptions": {
+        "surfaceTitle": "Hladina",
+        "surfaceText": "rýchla, ale môže mať nečistoty",
+        "middleTitle": "Stredná hĺbka",
+        "middleText": "stabilná vzorka bez dna",
+        "bottomTitle": "Dno",
+        "bottomText": "riziko sedimentu"
+      },
+      "bubbleCount": "{count} bubliny",
+      "routeMapAria": "Logická mapa trasy",
+      "stickerFallback": "Studňa {number}",
+      "clockTitle": "Hodiny ukazujú 09:20",
+      "clockText": "Správny odber je o tomto čase, keď zberateľ berie vzorku medzi ranným a dopoludňajším meraním.",
+      "sampleName": "Názov vzorky",
+      "location": "Lokalita",
+      "record": "Záznam",
+      "placeSticker": "Nalepiť štítok",
+      "saveRecord": "Uložiť záznam",
+      "sampleReady": "Vzorka pripravená",
+      "accuracy": "Presnosť: výborná",
+      "alreadySaved": "Už uložené",
+    "sampleRewardXp": "+15 XP",
+      "stepsAria": "Postup odberu",
+      "miniGameStep": "minihra",
+      "recordStep": "zápis",
+      "completeStep": "vzorka hotová",
+      "backMap": "Späť na mapu",
+      "leaveSample": "Odísť z odberu",
+    "sampleCodeCardTitle": "Terénny lístok",
+    "sampleCodeCardText": "Kód vzorky vznikne z troch dielikov: VZ, 01, LUKA.",
+    "clockRiverLabel": "09:20",
+    "stability": "stabilita",
+    "emptyCode": "vyber dieliky kódu",
+    "codePartsAria": "Dieliky kódu vzorky",
+    "undoCodePart": "Späť",
+    "clearCodeParts": "Vyčistiť"
+  },
+  "pipeControls": [
+    {
+      "id": "inlet",
+      "label": "Prívod",
+      "initial": "zatvorený",
+      "correct": "otvorený",
+      "states": [
+        "zatvorený",
+        "otvorený"
+      ]
+    },
+    {
+      "id": "filter",
+      "label": "Filter",
+      "initial": "zanesený",
+      "correct": "čistý",
+      "states": [
+        "zanesený",
+        "preplach",
+        "čistý"
+      ]
+    },
+    {
+      "id": "outlet",
+      "label": "Výstup",
+      "initial": "do odpadu",
+      "correct": "do fľaštičky",
+      "states": [
+        "do odpadu",
+        "do fľaštičky",
+        "na zem"
+      ]
+    }
+    ],
+    "initialBubbles": [
+      {
+        "id": 1,
+        "type": "bubble",
+        "label": "vzduch",
+        "x": 30,
+        "y": 62,
+        "size": 28
+      },
+      {
+        "id": 2,
+        "type": "sediment",
+        "label": "piesok",
+        "x": 55,
+        "y": 46,
+        "size": 22
+      },
+      {
+        "id": 3,
+        "type": "bubble",
+        "label": "vzduch",
+        "x": 68,
+        "y": 70,
+        "size": 18
+      },
+      {
+        "id": 4,
+        "type": "leaf",
+        "label": "lístok",
+        "x": 43,
+        "y": 78,
+        "size": 20
+      },
+      {
+        "id": 5,
+        "type": "bubble",
+        "label": "vzduch",
+        "x": 60,
+        "y": 58,
+        "size": 13
+      }
+    ],
+    "routineLocations": [
+      "Mochovce",
+      "Jaslovské Bohunice",
+      "Kalná nad Hronom",
+      "Levice",
+      "Trnava",
+      "Nitra"
+    ]
+  },
+  "lab": {
+    "eyebrow": "Laboratórium {locationTitle}",
+    "title": "Laboratórne meranie",
+    "buttons": {
+      "map": "Mapa",
+      "backMap": "Pokračovať na mape",
+      "measure": "Spustiť meranie",
+      "viewMeasurement": "Pozrieť meranie",
+      "nextPending": "Ďalšia čakajúca",
+      "results": "Výsledky"
+    },
+    "locked": "Laboratórium ešte čaká na všetkých 6 vzoriek.",
+    "states": {
+      "completed": "Záznam hotový",
+      "pending": "čaká na meranie"
+    },
+    "messages": {
+      "ready": "Šéf: Výborne. Všetky merania sú hotové, môžeme vyhodnotiť výsledky.",
+      "analyzed": "Šéf: Táto vzorka je už vyhodnotená. Vyber ďalšiu dvojicu.",
+      "pending": "Šéf: Vyber vzorku, vlož ju do spektrometra a skontroluj spektrum."
+    },
+    "rack": {
+      "done": "hotová",
+      "pending": "čaká"
+    },
+    "selectedSample": "Vybraná vzorka",
+    "checklist": {
+      "label": "štítok skontrolovaný",
+      "spectrometer": "spektrometer",
+      "record": "záznam merania"
+    },
+    "hint": "Čaká ešte {count} {noun}.",
+    "common": {
+      "sampleLabel": "Vzorka {number}",
+      "measurements": "Merania",
+      "ready": "PRIPRAVENÉ",
+      "done": "DOKONČENÉ",
+      "onePendingNoun": "vzorka",
+      "manyPendingNoun": "vzoriek"
+    }
+  },
+  "spectrometer": {
+    "eyebrow": "Analýza vzoriek",
+    "title": "Vzorka {sample}",
+    "lead": "Nastav referenciu, priprav vzorku v správnom poradí a z grafu vyčítaj, čo sa vo vode našlo.",
+    "referenceTitle": "Referenčné meranie",
+    "referenceText": "Vyber kontrolu, s ktorou sa dá porovnať vzorka.",
+    "prepTitle": "Poradie prípravy",
+    "prepText": "Klikaj kroky v poradí, v akom by ich spravil technik.",
+    "reset": "Začať odznova",
+    "buttons": {
+      "backLab": "Späť do laboratória",
+      "finish": "Dokončiť analýzu",
+      "alreadyDone": "Späť do laboratória"
+    },
+    "referenceCards": [
+      {
+        "id": "background",
+        "title": "Pozadie laboratória",
+        "detail": "Slabý šum, žiadny ostrý pík Cs-137.",
+        "correct": true
+      },
+      {
+        "id": "dirty",
+        "title": "Špinavá kyveta",
+        "detail": "Náhodné skoky signálu, nedá sa porovnávať.",
+        "correct": false
+      },
+      {
+        "id": "hot",
+        "title": "Kontrolná vzorka s Cs-137",
+        "detail": "Obsahuje výrazný signál Cs-137, preto nie je vhodná ako čisté pozadie.",
+        "correct": false
+      }
+    ],
+    "prepCards": [
+      {
+        "id": "label",
+        "title": "Skontroluj štítok",
+        "detail": "Bez lokality by sa meranie nedalo priradiť."
+      },
+      {
+        "id": "shield",
+        "title": "Zatvor olovené tienenie",
+        "detail": "Tienenie zníži rušenie z okolia."
+      },
+      {
+        "id": "count",
+        "title": "Spusti počítanie pulzov",
+        "detail": "Až teraz spektrometer zbiera dáta."
+      }
+    ],
+    "peaks": [
+      {
+        "id": "bi",
+        "label": "Bi-214",
+        "found": true,
+        "kind": "prirodný",
+        "message": "Bi-214 patrí do prirodzeného rozpadového radu. Sám o sebe neukazuje na znečistenie z elektrárne."
+      },
+      {
+        "id": "pb",
+        "label": "Pb-214",
+        "found": true,
+        "kind": "prirodný",
+        "message": "Pb-214 je ďalší prirodzený signál. Hľadaj ešte, či sa objavil aj umelý Cs-137."
+      },
+      {
+        "id": "cs",
+        "label": "Cs-137",
+        "found": false,
+        "kind": "umelý",
+        "message": "Tu by bol umelý Cs-137. V tejto vzorke chýba, preto ho označ ako nenájdený."
+      }
+    ],
+    "messages": {
+      "default": "Najprv vyber referenčné meranie, ktoré hovorí, ako vyzerá čistý signál bez umelého Cs-137.",
+      "referenceCorrect": "Správne. Čisté pozadie je základ porovnania. Teraz zorad pripravu vzorky.",
+      "referenceWrong": "Toto by meranie zmiatlo. Referencia má byť stabilné pozadie bez umelého píku Cs-137.",
+      "prepRequired": "Najprv vyber správnu referenciu.",
+      "prepWrong": "Poradie je dôležité: najprv identita vzorky, potom tienenie, nakoniec meranie. Skús znova.",
+      "prepCorrect": "Príprava sedí. Teraz prečítaj spektrum: označ prirodzené píky a over, že Cs-137 chýba.",
+      "prepStep": "Dobrý krok. Pokračuj ďalším laboratórnym úkonom v správnom poradí.",
+      "prepReset": "Poradie pripravené na nový pokus.",
+      "prepPending": "Najprv dokonči referenciu a prípravu vzorky.",
+      "complete": "Záznam uložený",
+      "analysisDone": "Spektrum prečítané",
+      "analysisSummary": "Bi-214 a Pb-214 sú prirodzené, Cs-137 sa nenašiel."
+    },
+    "status": {
+      "reference": "1. referencia",
+      "prep": "2. príprava",
+      "spectrum": "3. čítanie spektra"
+    },
+    "reward": {
+      "xp": "+20 XP",
+      "atom": "+8 atom bodov"
+    },
+    "ui": {
+      "chartAria": "Graf spektrometra s tromi píkmi",
+      "peakAria": "Pík {label}",
+      "statusReady": "SPEKTRUM",
+      "statusControl": "KONTROLA",
+      "selectedPrefix": "+",
+      "found": "nájdené",
+      "searching": "hľadá sa",
+      "notFound": "nenájdené",
+      "verify": "overiť",
+      "alreadyDoneText": "Táto analýza je už v laboratóriu."
+    },
+    "peakPositions": {
+      "bi": {
+        "x": 150,
+        "height": 116
+      },
+      "pb": {
+        "x": 310,
+        "height": 92
+      },
+      "cs": {
+        "x": 470,
+        "height": 48
+      }
+    }
+  },
+  "results": {
+    "eyebrow": "Výsledky",
+    "title": "Čo ukázalo meranie?",
+    "locked": "Výsledky sa zobrazia po analýze všetkých 6 vzoriek.",
+    "button": "Späť do laboratória",
+    "table": {
+      "header": {
+        "sample": "Vzorka",
+        "bi": "Bi-214",
+        "pb": "Pb-214",
+        "cs": "Cs-137"
+      },
+      "values": {
+        "found": "nájdené",
+        "notFound": "nenašlo sa"
+      }
+    },
+    "summary": "V meraných vzorkách sme zachytili prirodzené kontrolné signály Bi-214 a Pb-214. Signál Cs-137 sme nezachytili.",
+    "action": "Urobiť záver"
+  },
+  "conclusion": {
+    "eyebrow": "Záver misie",
+    "title": "Ukázalo toto meranie prítomnosť sledovaného Cs-137 vo vzorkách vody?",
+    "aria": "Odpoveď na záver misie",
+    "button": "Skontrolovať",
+    "choices": [
+      "Áno, Cs-137 bol zachytený",
+      "Nie, Cs-137 nebol zachytený",
+      "Výsledky merania ešte nie sú dokončené"
+    ],
+    "feedback": {
+      "correct": "Správne!",
+      "wrong": "Skús sa ešte raz pozrieť na výsledky."
+    },
+    "detail": "V analyzovaných vzorkách sme nezachytili Cs-137. Toto meranie preto neukázalo známku sledovaného rádioaktívneho znečistenia. Na celkové posúdenie kvality vody by však boli potrebné aj ďalšie druhy meraní.",
+    "badge": {
+      "label": "Odznak",
+      "title": "Ochranca vody"
+    },
+    "finale": {
+      "kicker": "Misia úspešne dokončená",
+      "title": "Ochranca vody",
+      "subtitle": "Tvoje rozhodnutie stálo na meraní, nie na dohade. Výsledky sú zaznamenané a pripravené na ďalšie odborné posúdenie.",
+      "stats": [
+        "6 odobratých vzoriek",
+        "3 laboratórne skeny",
+        "Cs-137 nezachytené"
+      ],
+      "profileButton": "Pozrieť profil ochrancu",
+      "mapButton": "Vrátiť sa na mapu"
+    }
+  },
+  "glossary": {
+    "eyebrow": "Slovník pojmov",
+    "title": "Malý vedecký slovník",
+    "button": "Domov",
+    "tabs": {
+      "dictionary": "Pojmy",
+      "flashcards": "Kartíčky",
+      "quiz": "Kvíz"
+    },
+    "flashcards": {
+      "title": "Kartičky na precvičenie",
+      "hint": "Klikni na kartičku a skús si najprv spomenúť, čo pojem znamená.",
+      "showAnswer": "Ukázať vysvetlenie",
+      "hideAnswer": "Skryť vysvetlenie",
+      "previous": "Predchádzajúca",
+      "next": "Ďalšia",
+      "markKnown": "Viem to",
+      "mastered": "Kartička zvládnutá",
+      "reward": "+3 XP za kartičku",
+      "rewardLabel": "Kartička zvládnutá"
+    },
+    "quiz": {
+      "title": "Rýchly pamäťový kvíz",
+      "hint": "Vyber správny pojem k vysvetleniu.",
+      "correct": "Správne.",
+      "wrong": "Skús ešte raz.",
+      "reset": "Začať kvíz odznova",
+      "score": "Skóre {score}/{total}",
+      "reward": "+5 XP za správnu odpoveď",
+      "rewardLabel": "Správna odpoveď v slovníku"
+    },
+    "terms": [
+      {
+        "id": "atom",
+        "icon": "atom",
+        "title": "Atóm",
+        "text": "Veľmi malá časť hmoty. Všetko okolo nás je poskladané z atómov."
+      },
+      {
+        "id": "radiation",
+        "icon": "rays",
+        "title": "Radiácia",
+        "text": "Prenos energie vo forme elektromagnetického žiarenia alebo častíc. Nemusíme ho vidieť, ale vieme ho merať prístrojmi."
+      },
+      {
+        "id": "isotope",
+        "icon": "isotope",
+        "title": "Izotop",
+        "text": "Druh atómu toho istého prvku, ktorý sa líši stavbou jadra."
+      },
+      {
+        "id": "natural",
+        "icon": "leaf",
+        "title": "Prírodná radiácia",
+        "text": "Radiácia, ktorá sa bežne nachádza v prírode, pôde, horninách aj vode."
+      },
+      {
+        "id": "cs137",
+        "icon": "warning",
+        "title": "Cs-137",
+        "text": "Rádioaktívny izotop vytvorený ľudskou činnosťou. Jeho zachytenie vo vzorke by si vyžadovalo ďalšie preverenie."
+      },
+      {
+        "id": "spectrometer",
+        "icon": "spectrum",
+        "title": "Spektrometer",
+        "text": "Prístroj, ktorý meria žiarenie a pomáha rozpoznať konkrétne rádioaktívne izotopy."
+      },
+      {
+        "id": "sample",
+        "icon": "bottle",
+        "title": "Vzorka",
+        "text": "Malé množstvo vody odobraté na presnom mieste, aby sa dalo skúmať v laboratóriu."
+      },
+      {
+        "id": "background",
+        "icon": "waves",
+        "title": "Pozadie merania",
+        "text": "Bežný slabý signál okolia, s ktorým porovnávame meranú vzorku."
+      },
+      {
+        "id": "peak",
+        "icon": "chart",
+        "title": "Pík v spektre",
+        "text": "Vrchol v grafe na určitej energii. Jeho poloha môže pomôcť určiť, ktorý izotop signál vytvoril."
+      },
+      {
+        "id": "shielding",
+        "icon": "shield",
+        "title": "Tienenie",
+        "text": "Ochranná vrstva, napríklad olovo, ktorá znižuje rušenie z okolia."
+      },
+      {
+        "id": "label",
+        "icon": "tag",
+        "title": "Štítok vzorky",
+        "text": "Označenie s kódom a lokalitou, aby laboratórium vedelo, odkiaľ vzorka prišla."
+      },
+      {
+        "id": "contamination",
+        "icon": "drop-alert",
+        "title": "Znečistenie",
+        "text": "Stav, keď sa vo vode objaví niečo, čo tam nepatrí alebo môže skresliť meranie."
+      }
+    ]
+  },
+  "profile": {
+    "eyebrow": "Profil hráča",
+    "button": "Späť do hry",
+    "organization": "Slovenské elektrárne",
+    "role": "kandidát po pohovore",
+    "department": "oddelenie merania vody",
+    "employeeRole": "zamestnanec {locationTitle}",
+    "editTitle": "Upraviť profil",
+    "labels": {
+      "playerName": "Meno hráča",
+      "avatarLabel": "Výber avatara"
+    },
+    "buttonSave": "Uložiť profil",
+    "badgesTitle": "Odznaky",
+    "badgeEmpty": "Začni výpravu a prvý odznak sa objaví tu.",
+    "stats": {
+      "xp": "XP",
+      "level": "úroveň",
+      "samples": "vzorky",
+      "analyses": "analýzy"
+    },
+    "levelPrefix": "Úroveň",
+    "levelProgress": "{progress}/{required} XP do úrovne {level}",
+    "maxLevelText": "Najvyššia úroveň dosiahnutá",
+    "ranks": {
+      "guardian": "Ochranca vody",
+      "measurementMaster": "Majster merania",
+      "fieldExpert": "Terénny expert",
+      "labExplorer": "Laboratórny prieskumník",
+      "sampleCollector": "Zberač vzoriek",
+      "youngScientist": "Mladý vedec"
+    },
+    "badges": {
+      "newEmployee": "Nový zamestnanec",
+      "interviewPassed": "Pohovor zvládnutý",
+      "explorer": "Prieskumník Slovenska",
+      "firstSample": "Prvá vzorka",
+      "fieldExpert": "Terénny expert",
+      "spectrometerFriend": "Priateľ spektrometra",
+      "masterMeasurements": "Majster merania",
+      "waterGuardian": "Ochranca vody"
+    },
+    "badgeIcons": {
+      "newEmployee": "id-card",
+      "interviewPassed": "quiz",
+      "explorer": "map",
+      "firstSample": "bottle",
+      "fieldExpert": "field",
+      "spectrometerFriend": "spectrum",
+      "masterMeasurements": "medal",
+      "waterGuardian": "shield"
+    }
+  },
+  "locations": {
+    "mochovce": {
+      "id": "mochovce",
+      "title": "Mochovce",
+      "area": "Nitriansky kraj",
+      "plantLabel": "JE Mochovce",
+      "intro": "Výprava skúma studne v okolí Mochoviec a učí sa porovnávať merania.",
+      "crestUrl": "",
+      "crestAlt": "Erb Kalnej nad Hronom používaný ako symbol lokality Mochovce"
+    },
+    "bohunice": {
+      "id": "bohunice",
+      "title": "Jaslovské Bohunice",
+      "area": "Trnavský kraj",
+      "plantLabel": "JE Jaslovské Bohunice",
+      "intro": "Výprava skúma studne pri Jaslovských Bohuniciach a hľadá vedecké dôkazy.",
+      "crestUrl": "",
+      "crestAlt": "Erb obce Jaslovské Bohunice"
+    }
+  },
+  "game": {
+    "defaults": {
+      "playerName": "Mladý vedec",
+      "avatar": "atom"
+    },
+    "rewards": {
+      "locationSelected": "Pracovná lokalita vybraná",
+      "interviewComplete": "Pohovor zvládnutý",
+      "sampleCollected": "Vzorka {number} pripravená",
+      "analysisComplete": "Analýza {number} hotová",
+      "profileCreated": "Profil zamestnanca vytvorený"
+    }
+  },
+  "playlist": {
+    "eyebrow": "Hudba k práci",
+    "title": "Playlist na spríjemnenie misie",
+    "lead": "Zapnite si playlist a môžete pokračovať v odberoch, laboratóriu alebo slovníku. Prehrávač zostane dostupný v spodnej časti obrazovky.",
+    "note": "Spotify môže vyžadovať kliknutie na prehratie alebo prihlásenie podľa vášho účtu.",
+    "cards": [
+      {
+        "title": "Zapnite si hudbu",
+        "text": "Kliknite na Playlist v navigácii a prehrávač zostane dostupný aj po návrate do hry."
+      },
+      {
+        "title": "Pokračujte v misii",
+        "text": "Hudba beží v spodnom paneli, kým zbierate vzorky alebo meriate v laboratóriu."
+      },
+      {
+        "title": "Neruší pri práci",
+        "text": "Panel sa dá zbaliť alebo takmer úplne schovať na malý jazýček."
+      }
+    ]
+  }
+}

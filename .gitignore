@@ -1,0 +1,9 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+.pnpm-store/
+.agents/
+
+*.log
+.DS_Store
