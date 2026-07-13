@@ -3,6 +3,7 @@ import { computed, onMounted, ref, watch } from 'vue'
 import AvatarVisual from '../components/AvatarVisual.vue'
 import BadgeIcon from '../components/BadgeIcon.vue'
 import appContent from '../content/appContent.json'
+import { useGameAudio } from '../composables/useGameAudio'
 
 const props = defineProps({
   game: {
@@ -52,6 +53,7 @@ const previewName = computed(() => playerName.value.trim() || props.game.playerN
 const badgeIcons = computed(() => content.value.badgeIcons)
 const animatedLevelProgress = ref(0)
 const resetConfirm = ref(false)
+const { soundEnabled, toggleSound } = useGameAudio()
 
 onMounted(() => {
   window.requestAnimationFrame(() => {
@@ -156,6 +158,21 @@ function requestReset() {
         </div>
 
         <button class="primary-button" type="button" @click="saveProfile">{{ content.buttonSave }}</button>
+
+        <div class="profile-audio-setting">
+          <div>
+            <strong>{{ content.sound.title }}</strong>
+            <span>{{ content.sound.description }}</span>
+          </div>
+          <button
+            class="profile-sound-toggle"
+            type="button"
+            :aria-pressed="soundEnabled"
+            @click="toggleSound"
+          >
+            {{ soundEnabled ? content.sound.on : content.sound.off }}
+          </button>
+        </div>
 
         <div class="profile-danger-zone">
           <div>

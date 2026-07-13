@@ -25,6 +25,7 @@ const content = computed(() => appContent.appShell)
 const menuOpen = ref(false)
 const playlistStarted = ref(false)
 const playerDockOpen = ref(false)
+const menuButton = ref(null)
 const isOnline = ref(typeof navigator === 'undefined' ? true : navigator.onLine)
 const navItems = computed(() => {
   if (!props.location) {
@@ -72,14 +73,22 @@ function updateOnlineStatus() {
   isOnline.value = navigator.onLine
 }
 
+function handleGlobalKeydown(event) {
+  if (event.key !== 'Escape' || !menuOpen.value) return
+  menuOpen.value = false
+  menuButton.value?.focus()
+}
+
 onMounted(() => {
   window.addEventListener('online', updateOnlineStatus)
   window.addEventListener('offline', updateOnlineStatus)
+  window.addEventListener('keydown', handleGlobalKeydown)
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('online', updateOnlineStatus)
   window.removeEventListener('offline', updateOnlineStatus)
+  window.removeEventListener('keydown', handleGlobalKeydown)
 })
 
 function isActive(item) {
@@ -100,7 +109,10 @@ function navigateTo(screen) {
 </script>
 
 <template>
-  <div class="app-shell">
+  <div
+    class="app-shell"
+    :class="[`screen-${currentScreen}`, { 'has-player-dock': playlistStarted && currentScreen !== 'playlist' }]"
+  >
     <a class="skip-link" href="#main-content">Preskočiť na hlavný obsah</a>
     <div class="game-atmosphere" aria-hidden="true">
       <i></i><i></i><i></i><i></i><i></i>
@@ -112,6 +124,7 @@ function navigateTo(screen) {
       </button>
 
       <button
+        ref="menuButton"
         class="menu-toggle"
         :class="{ open: menuOpen }"
         type="button"

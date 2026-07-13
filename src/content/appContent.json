@@ -998,6 +998,12 @@
       "avatarLabel": "Výber avatara"
     },
     "buttonSave": "Uložiť profil",
+    "sound": {
+      "title": "Zvukové efekty",
+      "description": "Krátka spätná väzba pri úspechu a odmene.",
+      "on": "Zvuk zapnutý",
+      "off": "Zvuk vypnutý"
+    },
     "badgesTitle": "Odznaky",
     "badgeEmpty": "Začni výpravu a prvý odznak sa objaví tu.",
     "stats": {

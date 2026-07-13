@@ -1,0 +1,244 @@
+/* Final UX layer: predictable scrolling, calmer motion and compact responsive layouts. */
+html {
+  min-height: 100%;
+  overflow-x: clip;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  scroll-padding-top: 112px;
+  scrollbar-gutter: stable;
+}
+
+body {
+  min-height: 100%;
+  overflow-x: clip;
+  overflow-y: auto;
+  overscroll-behavior-y: auto;
+}
+
+#app,
+.app-shell { min-height: 100dvh; }
+
+.app-shell {
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+#main-content {
+  min-height: 0;
+  padding-bottom: clamp(24px, 5vw, 58px);
+}
+
+.has-player-dock #main-content { padding-bottom: 86px; }
+
+.content-section,
+.hero-screen,
+.map-screen {
+  min-width: 0;
+  scroll-margin-top: 112px;
+}
+
+.content-section :is(p, li, strong, span),
+.hero-screen :is(p, strong, span) { overflow-wrap: break-word; }
+
+/* Keep ambient movement on the landing screen; task screens stay visually quiet. */
+.game-atmosphere i { display: none; }
+.screen-home .game-atmosphere i { display: block; }
+
+.topbar {
+  transition: box-shadow 220ms ease, background-color 220ms ease, border-color 220ms ease;
+}
+
+.menu-toggle,
+.brand-button,
+.player-chip,
+.nav-links button,
+.profile-sound-toggle {
+  transition:
+    transform 160ms ease,
+    color 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.nav-links.is-open { animation: menuReveal 210ms cubic-bezier(.22, 1, .36, 1) both; }
+
+.screen-shift-enter-active {
+  transition: opacity 240ms ease, transform 300ms cubic-bezier(.22, 1, .36, 1), filter 180ms ease;
+}
+
+.screen-shift-leave-active {
+  transition: opacity 105ms ease, transform 105ms ease;
+}
+
+.screen-shift-enter-from {
+  transform: translateY(12px) scale(.995);
+  filter: blur(2px);
+}
+
+.screen-shift-leave-to { transform: translateY(-3px); }
+
+.route-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: min(420px, 60dvh);
+  text-align: left;
+}
+
+.route-state > div { display: grid; gap: 4px; }
+.route-state strong { color: #15324d; font-size: 1.05rem; }
+.route-state span { color: #567181; }
+.route-state-spinner {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  border: 4px solid rgba(47, 128, 237, .16);
+  border-top-color: var(--blue);
+  border-radius: 50%;
+  animation: routeSpinner 750ms linear infinite;
+}
+.route-error { flex-wrap: wrap; }
+
+/* The playlist belongs to the document flow, so it can scroll on short screens. */
+.playlist-screen {
+  display: grid;
+  gap: clamp(18px, 3vw, 28px);
+  padding-bottom: 24px;
+}
+
+.playlist-screen .playlist-copy { max-width: 720px; }
+.playlist-screen .lead { margin-bottom: 0; }
+.playlist-screen .playlist-cards { margin-top: 0; }
+.playlist-note {
+  margin: 0;
+  color: #607887;
+  font-size: .86rem;
+  line-height: 1.5;
+}
+
+.persistent-player.playlist-mode {
+  position: relative;
+  inset: auto;
+  width: min(620px, calc(100% - 28px));
+  margin: 0 auto max(28px, env(safe-area-inset-bottom));
+  border-radius: 20px;
+  transform: none;
+  animation: playerReveal 320ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.persistent-player.dock-mode { max-height: min(230px, calc(100dvh - 28px)); }
+.persistent-player.dock-mode:not(.collapsed) { overflow-y: auto; }
+
+.profile-audio-setting {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  padding: 14px;
+  border: 1px solid #d2e5ea;
+  border-radius: 13px;
+  background: #f7fbfd;
+}
+.profile-audio-setting > div { display: grid; gap: 3px; }
+.profile-audio-setting strong { color: #294c60; }
+.profile-audio-setting span { color: #637d8b; font-size: .82rem; line-height: 1.4; }
+.profile-sound-toggle {
+  min-height: 44px;
+  padding: 9px 12px;
+  border: 1px solid #b9d8e4;
+  border-radius: 10px;
+  background: white;
+  color: var(--blue-dark);
+  font-weight: 850;
+}
+.profile-sound-toggle[aria-pressed="false"] { color: #647681; background: #edf3f5; }
+
+@media (hover: hover) and (pointer: fine) {
+  .brand-button:hover,
+  .player-chip:hover,
+  .profile-sound-toggle:hover { transform: translateY(-2px); }
+}
+
+@media (max-width: 699px) {
+  html { scroll-padding-top: 108px; scrollbar-gutter: auto; }
+
+  .app-shell {
+    padding-top: max(6px, env(safe-area-inset-top));
+    padding-inline: max(8px, env(safe-area-inset-left));
+  }
+
+  .topbar { margin-bottom: 10px; }
+  .content-section { padding: 18px 12px 28px; }
+  .section-heading { margin-bottom: 18px; }
+
+  .status-strip { grid-template-columns: minmax(0, 1fr) auto; }
+  .player-chip { width: 100%; min-width: 0; }
+  .mission-chip { max-width: 132px; }
+
+  .mission-map,
+  .expedition-map { min-height: clamp(440px, 72dvh, 560px); }
+
+  .well-mini-shell { min-height: clamp(390px, 68dvh, 480px); }
+  .well-game-stage { min-height: clamp(370px, 64dvh, 460px); }
+
+  .notification-stack {
+    top: auto;
+    right: 10px;
+    bottom: max(10px, env(safe-area-inset-bottom));
+    width: calc(100vw - 20px);
+  }
+
+  .persistent-player.playlist-mode {
+    width: calc(100% - 16px);
+    margin-bottom: max(20px, env(safe-area-inset-bottom));
+    border-radius: 14px;
+    transform: none;
+  }
+
+  .playlist-screen .playlist-cards { grid-template-columns: 1fr; }
+  .profile-audio-setting { grid-template-columns: 1fr; }
+  .profile-sound-toggle { width: 100%; }
+}
+
+@media (max-width: 380px) {
+  .brand-button { gap: 6px; font-size: .9rem; }
+  .brand-mark,
+  .atomacik-logo { width: 32px; height: 32px; }
+  .player-chip small { font-size: .68rem; }
+  .mission-chip { max-width: 86px; }
+  .mission-chip > strong { display: none; }
+  .content-section { padding-inline: 10px; }
+  .flashcard-controls { grid-template-columns: 1fr; }
+}
+
+@media (orientation: landscape) and (max-height: 560px) {
+  html { scroll-padding-top: 16px; }
+  .topbar { position: relative; top: auto; }
+  .hero-screen { min-height: auto; padding-block: 16px 36px; }
+  .hero-screen .mascot { width: min(220px, 42vw); margin-inline: auto; }
+  .content-section,
+  .map-screen { padding-top: 14px; }
+  .persistent-player.playlist-mode { margin-top: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .nav-links.is-open,
+  .persistent-player.playlist-mode,
+  .route-state-spinner { animation: none; }
+}
+
+@keyframes menuReveal {
+  from { opacity: 0; transform: translateY(-7px) scale(.99); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes routeSpinner { to { transform: rotate(360deg); } }
+
+@keyframes playerReveal {
+  from { opacity: 0; transform: translateY(12px) scale(.985); }
+  to { opacity: 1; transform: none; }
+}

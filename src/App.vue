@@ -2,6 +2,8 @@
 import { computed, defineAsyncComponent, nextTick, onBeforeUnmount, reactive, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import AppShell from './components/AppShell.vue'
+import ScreenErrorState from './components/ScreenErrorState.vue'
+import ScreenLoadingState from './components/ScreenLoadingState.vue'
 import appContent from './content/appContent.json'
 import { useGameAudio } from './composables/useGameAudio'
 import {
@@ -20,22 +22,32 @@ const { playGameSound } = useGameAudio()
 const route = useRoute()
 const router = useRouter()
 
+function asyncScreen(loader) {
+  return defineAsyncComponent({
+    loader,
+    loadingComponent: ScreenLoadingState,
+    errorComponent: ScreenErrorState,
+    delay: 140,
+    timeout: 20_000,
+  })
+}
+
 const screens = {
-  home: defineAsyncComponent(() => import('./views/HomeView.vue')),
-  employee: defineAsyncComponent(() => import('./views/EmployeeSetupView.vue')),
-  interview: defineAsyncComponent(() => import('./views/InterviewView.vue')),
-  location: defineAsyncComponent(() => import('./views/LocationView.vue')),
-  briefing: defineAsyncComponent(() => import('./views/BriefingView.vue')),
-  how: defineAsyncComponent(() => import('./views/HowItWorksView.vue')),
-  map: defineAsyncComponent(() => import('./views/MapView.vue')),
-  sample: defineAsyncComponent(() => import('./views/SampleView.vue')),
-  lab: defineAsyncComponent(() => import('./views/LabView.vue')),
-  spectrometer: defineAsyncComponent(() => import('./views/SpectrometerView.vue')),
-  results: defineAsyncComponent(() => import('./views/ResultsView.vue')),
-  conclusion: defineAsyncComponent(() => import('./views/ConclusionView.vue')),
-  glossary: defineAsyncComponent(() => import('./views/GlossaryView.vue')),
-  profile: defineAsyncComponent(() => import('./views/ProfileView.vue')),
-  playlist: defineAsyncComponent(() => import('./views/PlaylistView.vue')),
+  home: asyncScreen(() => import('./views/HomeView.vue')),
+  employee: asyncScreen(() => import('./views/EmployeeSetupView.vue')),
+  interview: asyncScreen(() => import('./views/InterviewView.vue')),
+  location: asyncScreen(() => import('./views/LocationView.vue')),
+  briefing: asyncScreen(() => import('./views/BriefingView.vue')),
+  how: asyncScreen(() => import('./views/HowItWorksView.vue')),
+  map: asyncScreen(() => import('./views/MapView.vue')),
+  sample: asyncScreen(() => import('./views/SampleView.vue')),
+  lab: asyncScreen(() => import('./views/LabView.vue')),
+  spectrometer: asyncScreen(() => import('./views/SpectrometerView.vue')),
+  results: asyncScreen(() => import('./views/ResultsView.vue')),
+  conclusion: asyncScreen(() => import('./views/ConclusionView.vue')),
+  glossary: asyncScreen(() => import('./views/GlossaryView.vue')),
+  profile: asyncScreen(() => import('./views/ProfileView.vue')),
+  playlist: asyncScreen(() => import('./views/PlaylistView.vue')),
 }
 
 const locations = { ...content.locations }
@@ -46,7 +58,29 @@ const selectedSample = ref(1)
 const rewardEvent = ref(null)
 const lastSavedScreen = ref('home')
 const STORAGE_KEY = 'atomacik-save-v1'
+const PUBLIC_SITE_URL = 'https://patrikrajnoha.github.io/atomacik'
 let rewardTimer = null
+
+function setMetaContent(selector, contentValue) {
+  const element = document.querySelector(selector)
+  if (element) element.setAttribute('content', contentValue)
+}
+
+function updateDocumentMetadata() {
+  if (typeof document === 'undefined') return
+
+  const title = route.meta.title || 'Atómáčik'
+  const description = route.meta.description || 'Hravá edukačná webová hra o vode, meraní a prírodnej rádioaktivite.'
+  const canonicalUrl = `${PUBLIC_SITE_URL}${route.path === '/' ? '/' : route.path}`
+  document.title = currentScreen.value === 'home' ? title : `${title} | Atómáčik`
+  setMetaContent('meta[name="description"]', description)
+  setMetaContent('meta[property="og:title"]', document.title)
+  setMetaContent('meta[property="og:description"]', description)
+  setMetaContent('meta[property="og:url"]', canonicalUrl)
+  setMetaContent('meta[name="twitter:title"]', document.title)
+  setMetaContent('meta[name="twitter:description"]', description)
+  document.querySelector('link[rel="canonical"]')?.setAttribute('href', canonicalUrl)
+}
 
 const levelThresholds = [
   { level: 1, xp: 0, rank: content.profile.ranks.youngScientist },
@@ -309,6 +343,8 @@ onBeforeUnmount(() => {
 })
 
 watch([currentScreen, lastSavedScreen, selectedWell, selectedSample, game], persistGame, { deep: true })
+
+watch(() => route.fullPath, updateDocumentMetadata, { immediate: true })
 
 watch(currentScreen, (screen) => {
   if (GAMEPLAY_SCREENS.includes(screen)) lastSavedScreen.value = screen
