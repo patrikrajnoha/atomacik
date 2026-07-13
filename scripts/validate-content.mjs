@@ -53,6 +53,7 @@ assert(
 
 assert(!/\bRPG\b/i.test(JSON.stringify(content)), 'user-facing content must not mention RPG')
 assert(!/\bRPG\b/i.test(readme), 'README must not mention RPG')
+assert(!JSON.stringify(content).includes('Kartíčky'), 'use the correct Slovak spelling „Kartičky“')
 
 if (errors.length) {
   console.error(errors.map((error) => `- ${error}`).join('\n'))
