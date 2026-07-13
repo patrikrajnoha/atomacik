@@ -523,7 +523,20 @@ function moveRoute(move) {
             </div>
           </div>
           <div class="fill-action">
-            <button class="hold-button" type="button" @pointerdown="startFill" @pointerup="releaseFill" @pointerleave="releaseFill" @pointercancel="releaseFill">{{ content.ui.holdButton }}</button>
+            <button
+              class="hold-button"
+              type="button"
+              @pointerdown="startFill"
+              @pointerup="releaseFill"
+              @pointerleave="releaseFill"
+              @pointercancel="releaseFill"
+              @keydown.space.prevent="startFill"
+              @keyup.space.prevent="releaseFill"
+              @keydown.enter.prevent="startFill"
+              @keyup.enter.prevent="releaseFill"
+            >
+              {{ content.ui.holdButton }}
+            </button>
             <div class="hold-progress-track" aria-hidden="true">
               <div class="hold-progress-bar" :style="{ width: `${fillLevel}%` }"></div>
             </div>

@@ -20,6 +20,12 @@
       "levelPrefix": "Úroveň",
       "xpSuffix": "XP"
     },
+    "update": {
+      "title": "Nová verzia je pripravená",
+      "body": "Obnov hru a pokračuj s najnovšími úpravami.",
+      "action": "Aktualizovať",
+      "later": "Neskôr"
+    },
     "reset": "Reset",
     "music": {
       "title": "Playlist do práce",

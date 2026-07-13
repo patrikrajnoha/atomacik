@@ -11,6 +11,10 @@ const main = fs.readFileSync('src/main.js', 'utf8')
 const polish = fs.readFileSync('src/styles/ux-polish.css', 'utf8')
 const playlist = fs.readFileSync('src/views/PlaylistView.vue', 'utf8')
 const router = fs.readFileSync('src/router.js', 'utf8')
+const baseStyles = fs.readFileSync('src/styles.css', 'utf8')
+const pwaUpdate = fs.readFileSync('src/composables/usePwaUpdate.js', 'utf8')
+const viteConfig = fs.readFileSync('vite.config.js', 'utf8')
+const deployWorkflow = fs.readFileSync('.github/workflows/deploy.yml', 'utf8')
 
 test('field shell does not render the obsolete live label', () => {
   const rule = cohesion.match(/\.well-mini-shell::after\s*\{([^}]+)\}/)?.[1] ?? ''
@@ -56,4 +60,28 @@ test('every public route has page metadata', () => {
   for (const screen of ['home', 'employee', 'interview', 'location', 'briefing', 'how', 'map', 'sample', 'lab', 'spectrometer', 'results', 'conclusion', 'glossary', 'profile', 'playlist']) {
     assert.match(router, new RegExp(`\\b${screen}:`))
   }
+})
+
+test('obsolete global controls and playlist layers are removed from CSS', () => {
+  assert.doesNotMatch(baseStyles, /\.music-dock\b/)
+  assert.doesNotMatch(baseStyles, /\.music-peek-button\b/)
+  assert.doesNotMatch(baseStyles, /\.loading-overlay\b/)
+  assert.doesNotMatch(baseStyles, /(^|[^-])\.reset-button\b/m)
+  assert.doesNotMatch(baseStyles, /\.playlist-player-card\b/)
+})
+
+test('PWA updates wait for the player and expose a visible prompt', () => {
+  assert.match(viteConfig, /registerType:\s*'prompt'/)
+  assert.match(pwaUpdate, /onNeedRefresh/)
+  assert.match(pwaUpdate, /updateServiceWorker\?\.\(true\)/)
+  assert.match(shell, /class="pwa-update-toast"/)
+})
+
+test('Pages workflow uses Node 24 action runtimes', () => {
+  assert.match(deployWorkflow, /actions\/checkout@v7/)
+  assert.match(deployWorkflow, /pnpm\/action-setup@v6/)
+  assert.match(deployWorkflow, /actions\/setup-node@v6/)
+  assert.match(deployWorkflow, /actions\/configure-pages@v6/)
+  assert.match(deployWorkflow, /actions\/upload-pages-artifact@v5/)
+  assert.match(deployWorkflow, /actions\/deploy-pages@v5/)
 })

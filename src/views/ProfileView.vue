@@ -111,7 +111,14 @@ function requestReset() {
         <div class="level-panel">
           <span>{{ content.levelPrefix }} {{ level }}</span>
           <strong>{{ rank }}</strong>
-          <div class="level-bar" aria-label="Postup do ďalšej úrovne">
+          <div
+            class="level-bar"
+            role="progressbar"
+            aria-label="Postup do ďalšej úrovne"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            :aria-valuenow="Math.round(animatedLevelProgress)"
+          >
             <i :style="{ width: `${animatedLevelProgress}%` }"></i>
           </div>
           <small>{{ levelProgressText }}</small>

@@ -222,7 +222,7 @@ function skipAnalysis() {
 
       <div class="spectrum-console" :class="{ scanning: scanStarted && !scanComplete, ready: scanComplete }">
         <div class="scan-progress"><i :style="{ width: `${scanProgress}%` }"></i><span>{{ scanProgress }}%</span></div>
-        <svg viewBox="0 0 620 260" class="spectrum-chart" role="img" :aria-label="content.ui.chartAria">
+        <svg viewBox="0 0 620 260" class="spectrum-chart" role="group" :aria-label="content.ui.chartAria">
           <line class="axis" x1="50" y1="220" x2="580" y2="220" />
           <line class="axis" x1="50" y1="40" x2="50" y2="220" />
           <polyline v-if="scanStarted" class="spectrum-line" points="60,216 96,212 122,205 150,104 178,206 230,211 282,204 310,128 340,204 398,214 442,210 470,172 498,210 560,216" />

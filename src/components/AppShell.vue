@@ -3,6 +3,7 @@ import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import AvatarVisual from './AvatarVisual.vue'
 import AtomacikLogo from './AtomacikLogo.vue'
 import appContent from '../content/appContent.json'
+import { usePwaUpdate } from '../composables/usePwaUpdate'
 
 const props = defineProps({
   currentScreen: { type: String, required: true },
@@ -27,6 +28,7 @@ const playlistStarted = ref(false)
 const playerDockOpen = ref(false)
 const menuButton = ref(null)
 const isOnline = ref(typeof navigator === 'undefined' ? true : navigator.onLine)
+const { updateAvailable, applyUpdate, dismissUpdate } = usePwaUpdate()
 const navItems = computed(() => {
   if (!props.location) {
     return [
@@ -143,6 +145,7 @@ function navigateTo(screen) {
           type="button"
           :class="{ active: isActive(item) }"
           :disabled="item.disabled"
+          :aria-current="item.screen === currentScreen ? 'page' : undefined"
           @click="navigate(item)"
         >
           {{ item.label }}
@@ -160,7 +163,7 @@ function navigateTo(screen) {
 
         <div v-if="location" class="mission-chip">
           <strong>{{ missionLabel }}</strong>
-          <div class="mission-dots" aria-label="Vzorky a merania">
+          <div class="mission-dots" role="img" aria-label="Vzorky a merania">
             <i
               v-for="sample in 6"
               :key="sample"
@@ -172,11 +175,23 @@ function navigateTo(screen) {
     </header>
 
     <Teleport to="body">
-      <div id="notification-stack" class="notification-stack" aria-label="Herné oznámenia">
+      <div id="notification-stack" class="notification-stack" role="region" aria-label="Herné oznámenia">
         <Transition name="reward-pop">
           <div v-if="reward" :key="reward.id" class="reward-toast" role="status" aria-live="polite">
             <strong>{{ reward.label }}</strong>
             <span v-if="reward.xp"><b>+{{ reward.xp }} XP</b></span>
+          </div>
+        </Transition>
+        <Transition name="pwa-update">
+          <div v-if="updateAvailable" class="pwa-update-toast" role="status" aria-live="polite">
+            <div>
+              <strong>{{ content.update.title }}</strong>
+              <span>{{ content.update.body }}</span>
+            </div>
+            <div class="pwa-update-actions">
+              <button type="button" class="pwa-update-primary" @click="applyUpdate">{{ content.update.action }}</button>
+              <button type="button" class="pwa-update-dismiss" @click="dismissUpdate">{{ content.update.later }}</button>
+            </div>
           </div>
         </Transition>
       </div>

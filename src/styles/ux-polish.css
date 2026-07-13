@@ -101,6 +101,35 @@ body {
 }
 .route-error { flex-wrap: wrap; }
 
+.pwa-update-toast {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #aed7e6;
+  border-radius: 14px;
+  background: #f7fcff;
+  color: #15324d;
+  box-shadow: 0 20px 48px rgba(18, 64, 88, .2), 0 0 0 4px rgba(255, 255, 255, .82);
+  pointer-events: auto;
+}
+
+.pwa-update-toast > div:first-child { display: grid; gap: 3px; }
+.pwa-update-toast span { color: #526f7f; font-size: .84rem; line-height: 1.45; }
+.pwa-update-actions { display: flex; flex-wrap: wrap; gap: 7px; }
+.pwa-update-actions button {
+  min-height: 42px;
+  padding: 8px 12px;
+  border-radius: 9px;
+  font-weight: 850;
+}
+.pwa-update-primary { border: 1px solid var(--blue-dark); background: var(--blue-dark); color: white; }
+.pwa-update-dismiss { border: 1px solid #c7dce5; background: white; color: #3f6173; }
+.pwa-update-enter-active,
+.pwa-update-leave-active { transition: opacity 180ms ease, transform 220ms cubic-bezier(.22, 1, .36, 1); }
+.pwa-update-enter-from,
+.pwa-update-leave-to { opacity: 0; transform: translateY(-8px) scale(.98); }
+
 /* The playlist belongs to the document flow, so it can scroll on short screens. */
 .playlist-screen {
   display: grid;
@@ -144,7 +173,7 @@ body {
 }
 .profile-audio-setting > div { display: grid; gap: 3px; }
 .profile-audio-setting strong { color: #294c60; }
-.profile-audio-setting span { color: #637d8b; font-size: .82rem; line-height: 1.4; }
+.profile-audio-setting span { color: #526b78; font-size: .82rem; line-height: 1.4; }
 .profile-sound-toggle {
   min-height: 44px;
   padding: 9px 12px;
